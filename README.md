@@ -4,6 +4,7 @@
 Revision history (starting with V2->V3):
 
 2->3: 	
+	
 	- After speaking with Clint I found a microcontroller with 2 UART ports to get rid of the
 		conflicting I/O lines of the CAN BUS and the USB in. 
 		
