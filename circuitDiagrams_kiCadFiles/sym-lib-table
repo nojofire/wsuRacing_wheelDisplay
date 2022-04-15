@@ -1,3 +1,4 @@
 (sym_lib_table
-  (lib (name wsuRWD_rev3_DSM-rescue)(type Legacy)(uri ${KIPRJMOD}/wsuRWD_rev3_DSM-rescue.lib)(options "")(descr ""))
+  (lib (name "wsuRWD_rev3_DSM-rescue")(type "Legacy")(uri "${KIPRJMOD}/wsuRWD_rev3_DSM-rescue.lib")(options "")(descr ""))
+  (lib (name "SparkFunBOB")(type "KiCad")(uri "${KIPRJMOD}/SparkFunBOB.kicad_sym")(options "")(descr ""))
 )
