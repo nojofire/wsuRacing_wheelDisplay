@@ -50,26 +50,27 @@ void setup() {
 
 void loop() {
   can_frame frame;
+  
  
-  if(mcp2515.readMessage(&frame) == MCP2515::ERROR_OK){
-      megasquirt_can.getBCastData(frame.can_id,frame.data, mega_Dash);
-        }
-      //if the value is above set values begins blinking mode
-      if(mega_Dash.tps >= int(limit*threshold)){ 
-        if(increment >= flipper){        
-            mode ^=1;
-            increment = 0;
-          }
-          else{
-            increment++;
-          }
-      }
-      else if(mega_Dash.rpm <int(limit*threshold)){
-        increment = 0;
-        mode = 1;
-      }
-      shiftOn(mega_Dash.rpm,mode);
-
+//  if(mcp2515.readMessage(&frame) == MCP2515::ERROR_OK){
+//      megasquirt_can.getBCastData(frame.can_id,frame.data, mega_Dash);
+//        }
+//      //if the value is above set values begins blinking mode
+//      if(mega_Dash.tps >= int(limit*threshold)){ 
+//        if(increment >= flipper){        
+//            mode ^=1;
+//            increment = 0;
+//          }
+//          else{
+//            increment++;
+//          }
+//      }
+//      else if(mega_Dash.rpm <int(limit*threshold)){
+//        increment = 0;
+//        mode = 1;
+//      }
+//     shiftOn(mega_Dash.rpm,mode);
+//
       //blinking light control
       blinker++;
       
@@ -78,10 +79,16 @@ void loop() {
         blinker =0;
       }
       if(setting == 1){
-          digitalWrite(PIN_PB0,HIGH);          
+          digitalWrite(PIN_PB0,HIGH);
+          rpmDisp.writeNumber(37,MAX72XX::Character::ZERO);
+          rpmDisp.update();
+              
        }
        else if(setting == 0){
           digitalWrite(PIN_PB0,LOW);
+          rpmDisp.writeNumber(456,MAX72XX::Character::ZERO);
+          rpmDisp.update();
+    
        }
   }
 
